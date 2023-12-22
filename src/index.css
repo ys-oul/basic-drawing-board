@@ -1,13 +1,90 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: #ccc;
+}
+canvas {
+  display: block;
+}
+.menu {
+  background: #fff;
+  display: flex;
+}
+.menu-item {
+  padding: 10px;
+}
+.menu-content {
+  margin-top: 4px;
+}
+.range-input {
+  width: 100px;
+}
+.canvas-area {
+  padding: 10px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.eraser-input {
+  appearance: none;
+  position: relative;
+  border: max(2px, 0.1em) solid gray;
+  border-radius: 1.25em;
+  width: 2.25em;
+  height: 1.25em;
+}
+
+.eraser-input::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  transform: scale(0.8);
+  background-color: gray;
+  transition: left 250ms linear;
+}
+
+.eraser-input:checked::before {
+  background-color: white;
+  left: 1em;
+}
+
+.eraser-input:checked {
+  background-color: tomato;
+  border-color: tomato;
+}
+
+.eraser-input:disabled {
+  border-color: lightgray;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.eraser-input:disabled:before {
+  background-color: lightgray;
+}
+
+.eraser-input:disabled + span {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.eraser-input:focus-visible {
+  outline-offset: max(2px, 0.1em);
+  outline: max(2px, 0.1em) solid tomato;
+}
+
+.eraser-input:enabled:hover {
+  box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+button {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
 }
